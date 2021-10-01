@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1598012836700,
+  "iteration": 1633088921091,
   "links": [
     {
       "icon": "dashboard",
@@ -51,7 +51,7 @@
       "repeat": "car_id",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -64,9 +64,7 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -107,12 +105,13 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -157,9 +156,7 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -200,12 +197,13 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -250,10 +248,8 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "mappings": [],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -294,12 +290,13 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -343,7 +340,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "displayName": "",
           "mappings": [],
@@ -378,12 +374,13 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -439,9 +436,7 @@
       "dataFormat": "timeseries",
       "datasource": "TeslaMate",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -460,7 +455,7 @@
       "reverseYBuckets": false,
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -528,9 +523,7 @@
       "dashes": false,
       "datasource": "TeslaMate",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -555,14 +548,17 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -685,9 +681,7 @@
       "datasource": "TeslaMate",
       "decimals": null,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fontSize": "150%",
@@ -713,7 +707,7 @@
       "pieType": "pie",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -758,40 +752,43 @@
     {
       "autoPanLabels": true,
       "autoWidthLabels": true,
-      "circleMaxSize": 30,
-      "circleMinSize": 2,
+      "categories": "a,b",
+      "circleMaxSize": "100",
+      "circleMinSize": "5",
       "circleOptions": {
-        "strokeEnabled": false,
-        "strokeWeight": "2"
+        "strokeEnabled": true,
+        "strokeWeight": "1"
       },
+      "circleSizeAbsoluteEnabled": false,
+      "circleSizeAbsoluteFactor": 1,
       "clickthroughOptions": {
         "windowName": null
       },
       "clickthroughUrl": "",
+      "colorMode": "threshold",
       "colors": [
-        "#f53636",
-        "#c05634",
-        "#976f32",
-        "#688b30",
-        "#32ac2d"
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
       ],
       "customAttribution": false,
       "customAttributionText": null,
       "datasource": "TeslaMate",
-      "decimals": 2,
+      "decimals": 0,
       "description": "",
       "doubleClickZoom": true,
       "dragging": true,
+      "enableOverlay": false,
+      "enableReloadOverlay": false,
       "esGeoPoint": null,
       "esLink": null,
       "esLocationName": null,
       "esMetric": "Count",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
+      "formatOmitEmptyValue": false,
       "gridPos": {
         "h": 13,
         "w": 14,
@@ -806,7 +803,7 @@
       "ignoreEscapeKey": false,
       "ignoreInvalidGeohashValues": false,
       "initialZoom": 1,
-      "legendContainerSelector": "",
+      "legendContainerSelector": null,
       "locationData": "table",
       "mapCenter": "(0°, 0°)",
       "mapCenterLatitude": 0,
@@ -814,16 +811,20 @@
       "mapFitData": true,
       "mapZoomByRadius": null,
       "maxDataPoints": 1,
-      "maximumZoom": "9",
-      "mouseWheelZoom": true,
+      "maximumZoom": null,
+      "mouseWheelZoom": false,
+      "overlayOpacity": 0.5,
+      "overlayRangeLatitude": "0,10",
+      "overlayRangeLongitude": "0,20",
+      "overlayUrl": "",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
       },
-      "showAttribution": false,
+      "showAttribution": true,
       "showLegend": true,
       "showZoomControl": true,
       "stickyLabels": false,
@@ -832,9 +833,9 @@
         "labelField": "loc_nm",
         "labelLocationKeyField": null,
         "latitudeField": "lat",
-        "linkField": "",
+        "linkField": null,
         "longitudeField": "lng",
-        "metricField": "pct",
+        "metricField": "chg_total",
         "queryType": "coordinates"
       },
       "targets": [
@@ -843,7 +844,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "WITH charge_data AS (\r\nSELECT COALESCE(geofence.name, CONCAT_WS(', ', COALESCE(address.name, nullif(CONCAT_WS(' ', address.road, address.house_number), '')), address.city)) AS loc_nm\r\n, AVG(position.latitude) AS lat \r\n, AVG(position.longitude) AS lng\r\n,sum(charge.charge_energy_added) AS chg_total\r\nFROM charging_processes charge\r\nLEFT JOIN addresses address ON charge.address_id = address.id\r\nLEFT JOIN positions position ON charge.position_id = position.id\r\nLEFT JOIN geofences geofence ON charge.geofence_id = geofence.id\r\nWHERE $__timeFilter(charge.start_date) \r\nAND charge.car_id = $car_id\r\nGROUP BY COALESCE(geofence.name, CONCAT_WS(', ', COALESCE(address.name, nullif(CONCAT_WS(' ', address.road, address.house_number), '')), address.city))\r\n) \r\nSELECT loc_nm\r\n\t,lat\r\n\t,lng\r\n\t,chg_total\r\n\t,chg_total * 1.0 / (SELECT sum(chg_total) FROM charge_data) * 100   AS pct\r\nFROM charge_data",
+          "rawSql": "WITH charge_data AS (\r\nSELECT COALESCE(geofence.name, CONCAT_WS(', ', COALESCE(address.name, nullif(CONCAT_WS(' ', address.road, address.house_number), '')), address.city)) AS loc_nm\r\n, AVG(position.latitude) AS lat \r\n, AVG(position.longitude) AS lng\r\n, sum(charge.charge_energy_added) AS chg_total\r\nFROM charging_processes charge\r\nLEFT JOIN addresses address ON charge.address_id = address.id\r\nLEFT JOIN positions position ON charge.position_id = position.id\r\nLEFT JOIN geofences geofence ON charge.geofence_id = geofence.id\r\nWHERE $__timeFilter(charge.start_date) \r\nAND charge.car_id = $car_id\r\nGROUP BY COALESCE(geofence.name, CONCAT_WS(', ', COALESCE(address.name, nullif(CONCAT_WS(' ', address.road, address.house_number), '')), address.city))\r\n) \r\nSELECT loc_nm\r\n\t,lat\r\n\t,lng\r\n\t,chg_total\r\n\t,chg_total * 1.0 / (SELECT sum(chg_total) FROM charge_data) * 100   AS pct\r\nFROM charge_data",
           "refId": "A",
           "select": [
             [
@@ -867,13 +868,13 @@
           ]
         }
       ],
-      "thresholds": "0,25,50,75",
+      "thresholds": "10,150",
       "timeFrom": null,
       "timeShift": null,
       "title": "Charging heat map by kWh",
-      "type": "grafana-map-panel",
-      "unitPlural": "%",
-      "unitSingular": "%",
+      "type": "panodata-map-panel",
+      "unitPlural": "",
+      "unitSingular": "",
       "valueName": "total"
     },
     {
@@ -890,9 +891,7 @@
       "datasource": "TeslaMate",
       "decimals": 1,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fontSize": "150%",
@@ -918,7 +917,7 @@
       "pieType": "pie",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -965,7 +964,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -1060,10 +1060,10 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -1104,7 +1104,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -1200,10 +1201,10 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -1244,7 +1245,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -1306,10 +1308,10 @@
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -1352,7 +1354,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -1418,10 +1421,10 @@
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.1.4",
+      "pluginVersion": "7.5.10",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -1463,7 +1466,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "tesla"
@@ -1474,11 +1477,13 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "1",
-          "value": "1"
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": "TeslaMate",
         "definition": "SELECT name AS __text, id AS __value FROM cars ORDER BY display_priority ASC, name ASC;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": true,
         "label": "Car",
@@ -1505,6 +1510,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select base_url from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": "",
@@ -1531,6 +1538,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select unit_of_length from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": null,

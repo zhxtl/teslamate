@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1598014142171,
+  "iteration": 1633085940411,
   "links": [
     {
       "icon": "dashboard",
@@ -50,7 +50,7 @@
       "repeat": "car_id",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -63,9 +63,7 @@
       "datasource": "TeslaMate",
       "defaultLayer": "OpenStreetMap",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -78,10 +76,52 @@
       "lineColor": "red",
       "links": [],
       "maxDataPoints": 10000000,
+      "options": {
+        "ant": {
+          "color": "blue",
+          "delay": 200,
+          "paused": true,
+          "pulseColor": "blue",
+          "reverse": false,
+          "weight": 2
+        },
+        "discardZeroOrNull": true,
+        "heat": {
+          "fitBoundsOnLoad": true,
+          "fitBoundsOnUpdate": true
+        },
+        "hex": {
+          "colorRangeFrom": "#f7fbff",
+          "colorRangeTo": "#ff0000",
+          "opacity": 0.6,
+          "radiusRangeFrom": 5,
+          "radiusRangeTo": 12
+        },
+        "map": {
+          "centerLatitude": 56.17203,
+          "centerLongitude": 10.1865203,
+          "useBoundsInQuery": false,
+          "useCenterFromFirstPos": false,
+          "useCenterFromLastPos": true,
+          "zoom": 7,
+          "zoomToDataBounds": false
+        },
+        "marker": {
+          "alwaysShowTooltips": false,
+          "showOnlyLastMarker": false,
+          "size": 25,
+          "sizeLast": 25,
+          "useSecondaryIconForAllMarkers": false,
+          "useSecondaryIconForLastMarker": false
+        },
+        "viewType": "heat"
+      },
       "pointColor": "royalblue",
+      "repeat": null,
+      "repeatDirection": "v",
       "scopedVars": {
         "car_id": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         }
@@ -94,7 +134,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n\tto_timestamp(floor((extract('epoch' FROM date) / 60)) * 60) AT TIME ZONE 'UTC' AS time,\n\tavg(latitude) AS lat,\n\tavg(longitude) AS lng\nFROM\n\tpositions\nWHERE\n  car_id = $car_id AND\n\t$__timeFilter(date)\nGROUP BY\n\t1\nORDER BY\n\t1 ASC",
+          "rawSql": "SELECT\n\tto_timestamp(floor((extract('epoch' FROM date) / 60)) * 60) AT TIME ZONE 'UTC' AS time,\n\tavg(latitude) AS latitude,\n\tavg(longitude) AS longitude,\n\tcount(*) as intensity\nFROM\n\tpositions\nWHERE\n  car_id = $car_id AND\n\t$__timeFilter(date)\nGROUP BY\n\t1\nORDER BY\n\t1 ASC",
           "refId": "A",
           "select": [
             [
@@ -118,12 +158,157 @@
           ]
         }
       ],
-      "title": "MAP",
-      "type": "pr0ps-trackmap-panel"
+      "title": "Heatmap",
+      "type": "alexandra-trackmap-panel"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
+      "id": 7,
+      "options": {
+        "content": " ",
+        "mode": "markdown"
+      },
+      "pluginVersion": "7.5.10",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  inserted_at AS \"time\",\n  efficiency\nFROM cars\nWHERE\n  $__timeFilter(inserted_at)\nORDER BY 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "efficiency"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "cars",
+          "timeColumn": "inserted_at",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "autoZoom": true,
+      "datasource": "TeslaMate",
+      "defaultLayer": "OpenStreetMap",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 5,
+      "lineColor": "red",
+      "links": [],
+      "maxDataPoints": 10000000,
+      "options": {
+        "ant": {
+          "color": "blue",
+          "delay": 200,
+          "paused": true,
+          "pulseColor": "blue",
+          "reverse": false,
+          "weight": 2
+        },
+        "discardZeroOrNull": true,
+        "heat": {
+          "fitBoundsOnLoad": true,
+          "fitBoundsOnUpdate": true
+        },
+        "hex": {
+          "colorRangeFrom": "#f7fbff",
+          "colorRangeTo": "#ff0000",
+          "opacity": 0.6,
+          "radiusRangeFrom": 5,
+          "radiusRangeTo": 12
+        },
+        "map": {
+          "centerLatitude": 56.17203,
+          "centerLongitude": 10.1865203,
+          "useBoundsInQuery": false,
+          "useCenterFromFirstPos": false,
+          "useCenterFromLastPos": true,
+          "zoom": 7,
+          "zoomToDataBounds": false
+        },
+        "marker": {
+          "alwaysShowTooltips": false,
+          "showOnlyLastMarker": false,
+          "size": 25,
+          "sizeLast": 25,
+          "useSecondaryIconForAllMarkers": false,
+          "useSecondaryIconForLastMarker": false
+        },
+        "viewType": "ant"
+      },
+      "pointColor": "royalblue",
+      "scrollWheelZoom": false,
+      "showLayerChanger": true,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n\tto_timestamp(floor((extract('epoch' FROM date) / 60)) * 60) AT TIME ZONE 'UTC' AS time,\n\tavg(latitude) AS latitude,\n\tavg(longitude) AS longitude\nFROM\n\tpositions\nWHERE\n  car_id = $car_id AND\n\t$__timeFilter(date)\nGROUP BY\n\t1\nORDER BY\n\t1 ASC",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "charging",
+          "timeColumn": "Datum",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Map",
+      "type": "alexandra-trackmap-panel"
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "tesla"
@@ -134,11 +319,13 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "1",
-          "value": "1"
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": "TeslaMate",
         "definition": "SELECT name AS __text, id AS __value FROM cars ORDER BY display_priority ASC, name ASC;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": true,
         "label": "Car",
@@ -165,6 +352,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select base_url from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": "",

@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594304652394,
+  "iteration": 1633088819334,
   "links": [
     {
       "icon": "dashboard",
@@ -45,7 +45,6 @@
       "decimals": 2,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -75,8 +74,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.0-beta2",
+      "pluginVersion": "7.5.10",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -179,7 +181,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 1,
           "displayName": "Added",
           "mappings": [
@@ -191,7 +192,6 @@
               "value": "null"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -227,9 +227,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "value_and_name"
       },
-      "pluginVersion": "7.1.0-beta2",
+      "pluginVersion": "7.5.10",
       "targets": [
         {
           "format": "table",
@@ -262,7 +263,6 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "stat"
     },
     {
@@ -270,7 +270,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "displayName": "Cost",
           "mappings": [
@@ -282,7 +281,6 @@
               "value": "null"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -323,9 +321,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.0-beta2",
+      "pluginVersion": "7.5.10",
       "targets": [
         {
           "format": "table",
@@ -359,7 +358,6 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "stat"
     },
     {
@@ -373,9 +371,7 @@
       ],
       "datasource": "TeslaMate",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "none",
@@ -462,7 +458,6 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
@@ -478,9 +473,7 @@
       "autoZoom": true,
       "datasource": "TeslaMate",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -493,6 +486,46 @@
       "lineColor": "red",
       "links": [],
       "maxDataPoints": 500,
+      "options": {
+        "ant": {
+          "color": "rgb(0, 100, 255)",
+          "delay": 400,
+          "paused": false,
+          "pulseColor": "rgb(0, 0, 0)",
+          "reverse": false,
+          "weight": 5
+        },
+        "discardZeroOrNull": true,
+        "heat": {
+          "fitBoundsOnLoad": false,
+          "fitBoundsOnUpdate": false
+        },
+        "hex": {
+          "colorRangeFrom": "#f7fbff",
+          "colorRangeTo": "#ff0000",
+          "opacity": 0.6,
+          "radiusRangeFrom": 5,
+          "radiusRangeTo": 12
+        },
+        "map": {
+          "centerLatitude": 56.17203,
+          "centerLongitude": 10.1865203,
+          "useBoundsInQuery": false,
+          "useCenterFromFirstPos": true,
+          "useCenterFromLastPos": false,
+          "zoom": 17,
+          "zoomToDataBounds": false
+        },
+        "marker": {
+          "alwaysShowTooltips": false,
+          "showOnlyLastMarker": true,
+          "size": 45,
+          "sizeLast": 45,
+          "useSecondaryIconForAllMarkers": false,
+          "useSecondaryIconForLastMarker": false
+        },
+        "viewType": "marker"
+      },
       "pointColor": "royalblue",
       "targets": [
         {
@@ -501,7 +534,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n\t$__time(date),\n\tunnest(ARRAY[latitude, latitude]) AS latitude,\n\tunnest(ARRAY[longitude, longitude]) AS longitude\nFROM\n\tcharging_processes c\n\tJOIN positions p ON c.position_id = p.id\nWHERE\n\t$__timeFilter(date)\n\tAND c.car_id = $car_id;",
+          "rawSql": "SELECT\n\t$__time(date),\n\tp.latitude,\n\tp.longitude\nFROM\n\tcharging_processes c\n\tJOIN positions p ON c.position_id = p.id\nWHERE\n\t$__timeFilter(date)\n\tAND c.car_id = $car_id;",
           "refId": "A",
           "select": [
             [
@@ -523,12 +556,11 @@
           ]
         }
       ],
-      "title": "",
-      "type": "pr0ps-trackmap-panel"
+      "type": "alexandra-trackmap-panel"
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -562,6 +594,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select unit_of_temperature from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": "",
@@ -588,6 +622,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "SELECT name AS __text, id AS __value FROM cars ORDER BY display_priority ASC, name ASC;",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Car",
@@ -614,6 +650,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select unit_of_length from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -640,6 +678,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select preferred_range from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -666,6 +706,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select base_url from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": null,

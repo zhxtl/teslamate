@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1601722850623,
+  "iteration": 1633087759285,
   "links": [
     {
       "icon": "dashboard",
@@ -53,7 +53,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -87,7 +86,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -189,7 +188,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "displayName": "Distance",
           "mappings": [
@@ -201,7 +199,6 @@
               "value": "null"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -262,9 +259,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "targets": [
         {
           "format": "table",
@@ -297,7 +295,6 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "stat"
     },
     {
@@ -306,7 +303,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 1,
           "displayName": "Duration",
           "mappings": [
@@ -319,7 +315,6 @@
               "value": "null"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -355,9 +350,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "targets": [
         {
           "format": "table",
@@ -390,7 +386,6 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "stat"
     },
     {
@@ -398,7 +393,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "displayName": "Energy used",
           "mappings": [
@@ -410,7 +404,6 @@
               "value": "null"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -446,9 +439,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "targets": [
         {
           "format": "table",
@@ -481,14 +475,12 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "stat"
     },
     {
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "displayName": "Consumption",
           "mappings": [],
           "thresholds": {
@@ -555,9 +547,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "targets": [
         {
           "format": "table",
@@ -590,7 +583,6 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "stat"
     },
     {
@@ -598,9 +590,7 @@
       "datasource": "TeslaMate",
       "defaultLayer": "OpenStreetMap",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -613,6 +603,47 @@
       "lineColor": "red",
       "links": [],
       "maxDataPoints": 50000,
+      "options": {
+        "ant": {
+          "color": "rgb(0, 100, 255)",
+          "delay": 8000,
+          "paused": false,
+          "pulseColor": "blue",
+          "reverse": false,
+          "weight": 3
+        },
+        "discardZeroOrNull": true,
+        "heat": {
+          "fitBoundsOnLoad": false,
+          "fitBoundsOnUpdate": false
+        },
+        "hex": {
+          "colorRangeFrom": "#f7fbff",
+          "colorRangeTo": "#ff0000",
+          "opacity": 0.6,
+          "radiusRangeFrom": 5,
+          "radiusRangeTo": 12
+        },
+        "map": {
+          "centerLatitude": 56.17203,
+          "centerLongitude": 10.1865203,
+          "tileUrlSchema": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          "useBoundsInQuery": false,
+          "useCenterFromFirstPos": true,
+          "useCenterFromLastPos": false,
+          "zoom": 16,
+          "zoomToDataBounds": false
+        },
+        "marker": {
+          "alwaysShowTooltips": false,
+          "showOnlyLastMarker": false,
+          "size": 25,
+          "sizeLast": 25,
+          "useSecondaryIconForAllMarkers": false,
+          "useSecondaryIconForLastMarker": false
+        },
+        "viewType": "ant"
+      },
       "pointColor": "royalblue",
       "scrollWheelZoom": false,
       "showLayerChanger": true,
@@ -632,7 +663,7 @@
           "hide": false,
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n  $__time(date),\r\n   latitude,\r\n   longitude\r\n   FROM positions\r\nWHERE \r\n  car_id = $car_id AND \r\n  $__timeFilter(date)\r\nORDER BY date ASC",
+          "rawSql": "SELECT\r\n  $__time(date),\r\n   latitude,\r\n   longitude\r\nFROM positions\r\nWHERE \r\n  car_id = $car_id AND \r\n  $__timeFilter(date)\r\nORDER BY date ASC",
           "refId": "A",
           "select": [
             [
@@ -691,7 +722,7 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Map",
-      "type": "pr0ps-trackmap-panel"
+      "type": "alexandra-trackmap-panel"
     },
     {
       "aliasColors": {},
@@ -701,7 +732,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -732,7 +762,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -825,7 +855,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -856,7 +885,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -975,7 +1004,6 @@
       "datasource": "TeslaMate",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [
             {
               "id": 0,
@@ -985,7 +1013,6 @@
               "value": "null"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1021,9 +1048,10 @@
           "fields": "/.*/",
           "values": false
         },
+        "text": {},
         "textMode": "value_and_name"
       },
-      "pluginVersion": "7.2.0",
+      "pluginVersion": "7.5.10",
       "targets": [
         {
           "format": "table",
@@ -1056,13 +1084,12 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "transparent": true,
       "type": "stat"
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1090,11 +1117,14 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "C",
           "value": "C"
         },
         "datasource": "TeslaMate",
         "definition": "select unit_of_temperature from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": "",
@@ -1121,6 +1151,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select unit_of_length from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": "",
@@ -1147,6 +1179,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "SELECT name AS __text, id AS __value FROM cars ORDER BY display_priority ASC, name ASC;",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Car",
@@ -1173,6 +1207,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select case when unit_of_length = 'km' then 'm' when unit_of_length = 'mi' then 'ft' end  from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": "",
@@ -1199,6 +1235,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select preferred_range from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": null,
@@ -1225,6 +1263,8 @@
         },
         "datasource": "TeslaMate",
         "definition": "select base_url from settings limit 1;",
+        "description": null,
+        "error": null,
         "hide": 2,
         "includeAll": false,
         "label": "",
@@ -1276,5 +1316,5 @@
   "timezone": "",
   "title": "Drive Details",
   "uid": "zm7wN6Zgz",
-  "version": 4
+  "version": 2
 }
